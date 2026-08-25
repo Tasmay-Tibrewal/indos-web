@@ -33,6 +33,7 @@
   .form-box label{display:flex;gap:10px;align-items:flex-start;color:var(--bone);}
   .form-box input[type=checkbox]{margin-top:5px;accent-color:var(--green);}
   .fieldline{color:var(--bone-3);font-size:.95rem;margin-top:14px;}
+  .optional-tag{margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line);color:var(--bone);font-weight:600;font-size:.95rem;}
 </style>
 </head>
 <body>
@@ -44,23 +45,26 @@
   <p>Independence OS operates text messaging on behalf of participating medical clinics. When you opt in, you will receive informational messages from your clinic, such as appointment reminders, appointment request confirmations, prescription refill request status updates, and missed-call follow-ups. Messages may be sent in English or Spanish based on your preference.</p>
 
   <h2>Opt-in — how patients consent</h2>
-  <p>Patients opt in through one of the two flows below, and messages are never sent before consent is given. Consent to receive text messages is <strong>not a condition of receiving care</strong> or any other service. The exact consent language used in each flow is reproduced here.</p>
+  <p>Patients opt in through one of the two flows below, and messages are never sent before consent is given. The exact consent language used in each flow is reproduced here.</p>
+  <p><strong>Opting in is entirely voluntary.</strong> Consent to receive text messages is <strong>never</strong> a condition of receiving care, booking or keeping an appointment, filling a prescription, registering as a patient, completing any form, or using any Independence OS or clinic service. Consent is asked as a standalone question, separately from anything a patient is required to do, and it is never bundled with any other agreement or signature. Declining changes nothing about the patient's care or their ability to use every clinic service, and a patient who opts in may withdraw at any time by replying STOP. Consent applies only to this program's informational clinic messages described above — never to marketing, and never to any other campaign.</p>
 
   <h3>Flow 1 — verbal consent during a phone call</h3>
   <p>When a patient calls a participating clinic, the clinic's staff member or phone assistant asks for consent before any text message is sent, using this script:</p>
   <blockquote>"Would you like to receive text message updates from [Clinic Name] at this number — things like appointment reminders and confirmations of your requests? Message frequency varies and message and data rates may apply. You can reply STOP at any time to stop receiving messages, or HELP for help. Our privacy policy and messaging terms are at independenceos.ai/privacy and independenceos.ai/terms. Do you agree to receive these messages?"</blockquote>
-  <p>Messages are sent only if the caller clearly answers yes. The consent — date, time, phone number, and scope — is recorded in the clinic's patient communication system. If the caller declines, no messages are sent and the number is recorded as declined.</p>
+  <p>The question is asked on its own, and answering it is not required to complete the call or to receive any help the patient called about. Messages are sent only if the caller clearly answers yes. The consent — date, time, phone number, and scope — is recorded in the clinic's patient communication system. If the caller declines, no messages are sent, the number is recorded as declined, and the call continues normally.</p>
 
-  <h3>Flow 2 — written consent on the clinic intake form</h3>
-  <p>Patients may also opt in in person at the clinic front desk. The paper or electronic intake form contains the consent section below. The checkbox is <strong>unchecked by default</strong>; the patient must actively check it to consent:</p>
+  <h3>Flow 2 — written consent, on a separate optional form</h3>
+  <p>Patients may also opt in at the clinic front desk. This consent is collected on its <strong>own separate, clearly optional form</strong>, not as part of the required registration or intake paperwork. It has its own initials line; it is never covered by the signature on any other document, and no other form or agreement grants it. The patient can leave it blank or decline it and still complete registration, be seen, and use every clinic service. The checkbox is <strong>unchecked by default</strong> — the patient must actively check it to consent:</p>
   <div class="form-box">
+    <p class="optional-tag">OPTIONAL — text message sign-up. You do not have to complete this form. Leaving it blank or declining will not affect your care, your appointment, your registration, or any service you receive.</p>
     <label><input type="checkbox" disabled>
-      <span>I agree to receive informational text messages from [Clinic Name] — such as appointment reminders, appointment request confirmations, and prescription refill status updates — at the mobile number I have provided. Message frequency varies. Message &amp; data rates may apply. I can reply STOP at any time to unsubscribe or HELP for help. Consent is not a condition of receiving care. See the <a href="/privacy">Privacy Policy</a> and SMS Terms &amp; Conditions.</span>
+      <span>I agree to receive informational text messages from [Clinic Name] — such as appointment reminders, appointment request confirmations, and prescription refill status updates — at the mobile number I give below. Message frequency varies. Message &amp; data rates may apply. I can reply STOP at any time to unsubscribe or HELP for help. I understand this is optional and is not required for my care or for any clinic service. See the <a href="/privacy">Privacy Policy</a> and SMS Terms &amp; Conditions.</span>
     </label>
-    <p class="fieldline">Mobile number: ____________________ &nbsp; Signature: ____________________ &nbsp; Date: __________</p>
+    <p class="fieldline">Mobile number for text messages: ____________________ &nbsp; Initials: ________ &nbsp; Date: __________</p>
+    <p class="fieldline">This form is used only for text message sign-up. It is filed separately and collects nothing else.</p>
   </div>
 
-  <p>We do not support opt-in by text keyword; there is no text-to-join path into this program.</p>
+  <p>We do not support opt-in by text keyword; there is no text-to-join path into this program. There is no other way to be enrolled: no patient is ever added to this program by a purchase, a booking, an account creation, a web form, a third party, or a purchased list.</p>
 
   <h2>Message frequency</h2>
   <p><strong>Message frequency varies</strong> depending on your appointments and requests.</p>
