@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,29 +8,45 @@
 <link rel="icon" type="image/png" href="indoslogo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v=45">
 <style>
-  :root{
-    --ink:#13140F; --bone:#ECEAE0; --bone-2:#A4A293; --bone-3:#71705F;
-    --green:#66B3A6; --line:rgba(236,234,224,.10);
-    --serif:'Spectral',Georgia,'Times New Roman',serif;
-    --sans:'Hanken Grotesk',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-  }
-  *{box-sizing:border-box;}
-  html{background:var(--ink);-webkit-text-size-adjust:100%;}
-  body{margin:0;color:var(--bone);font-family:var(--sans);font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;}
-  main{max-width:720px;margin:0 auto;padding:64px 24px 96px;}
-  h1{font-family:var(--serif);font-weight:500;font-size:2rem;margin:0 0 4px;}
-  h2{font-family:var(--serif);font-weight:500;font-size:1.25rem;margin:2.2em 0 .5em;color:var(--bone);}
-  p,li{color:var(--bone-2);}
-  strong{color:var(--bone);font-weight:600;}
-  a{color:var(--green);}
-  .updated{color:var(--bone-3);font-size:.9rem;margin-bottom:2em;}
-  hr{border:none;border-top:1px solid var(--line);margin:2.5em 0;}
+  main.legal{max-width:720px;margin:0 auto;padding:56px 24px 96px;font-size:16.5px;line-height:1.62;}
+  main.legal h1{font-size:2.2rem;margin:0 0 6px;letter-spacing:-.028em;}
+  main.legal h2{font-size:1.2rem;margin:2.2em 0 .5em;letter-spacing:-.015em;}
+  main.legal p,main.legal li{color:var(--ink-2);margin:0 0 .9em;}
+  main.legal ul{padding-left:1.2em;list-style:disc;}
+  main.legal strong{color:var(--ink);font-weight:600;}
+  main.legal a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;}
+  main.legal .updated{font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3);margin-bottom:2.5em;}
+  main.legal hr{border:none;border-top:1px solid var(--line);margin:2.5em 0;}
+  .form-box{margin:1em 0;padding:20px;border:1px solid var(--line);border-radius:12px;background:var(--surface);}
+  .form-box label{display:flex;gap:10px;align-items:flex-start;color:var(--ink);}
+  .form-box input[type=checkbox]{margin-top:5px;accent-color:var(--accent);}
+  .fieldline{color:var(--ink-3);font-size:.95rem;margin-top:14px;}
+  .optional-tag{margin:0 0 14px;padding-bottom:12px;border-bottom:1px solid var(--line);color:var(--ink);font-weight:600;font-size:.95rem;}
 </style>
+<meta name="color-scheme" content="dark">
 </head>
 <body>
-<main>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html"><img src="indoslogo.png" alt="">Independence OS</a>
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="vision.html">Vision</a>
+      <a href="team.html">Team</a>
+    </nav>
+    <div class="nav-right">
+      <a class="btn primary nav-cta" href="mailto:admin@independenceos.ai">Talk to us</a>
+      <button type="button" class="icon-btn nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+<main class="legal">
   <h1>Privacy Policy</h1>
   <p class="updated">Independence OS, Inc. · Last updated: August 25, 2026</p>
 
@@ -66,7 +82,16 @@
   <p>Independence OS, Inc. · <a href="mailto:support@independenceos.ai">support@independenceos.ai</a></p>
 
   <hr>
-  <p><a href="/terms">SMS Terms &amp; Conditions</a> · <a href="/">Home</a></p>
+  <p><a href="terms.html">SMS Terms &amp; Conditions</a> · <a href="index.html">Home</a></p>
 </main>
+<footer>
+  <div class="container">
+    <div class="foot-bottom" style="margin-top:0;border-top:0">
+      <span>© 2026 Independence OS</span>
+      <span><a href="privacy.html">Privacy</a> &nbsp;·&nbsp; <a href="terms.html">SMS terms</a> &nbsp;·&nbsp; <a href="index.html">Home</a></span>
+    </div>
+  </div>
+</footer>
+<script src="main.js?v=24"></script>
 </body>
 </html>
