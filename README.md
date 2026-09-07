@@ -1,70 +1,40 @@
 # Independence OS — Website
 
-Marketing site for **Independence OS**, which runs its own clinics and builds the AI that runs them — an operating system for American healthcare. Pre-launch.
+Marketing site for **Independence OS**, which runs its own clinics and builds the AI that runs them. Live at [independenceos.ai](https://independenceos.ai).
 
-It's a single, self-contained page with client-side (hash) routing across four views: **Overview**, **Products**, **Vision**, and **Team**. No framework, no build step, no dependencies.
-
-**Live:** [independenceos.ai](https://independenceos.ai)
+Static site, no framework, no build step. Four pages share one stylesheet and one script.
 
 ## Run locally
 
-It's a static site, so any of these work:
-
 ```bash
-# Simplest: open the file directly
-open index.html
-
-# Or serve it (recommended — closer to production)
 python3 -m http.server 8000
-# then visit http://localhost:8000/
+# then open http://localhost:8000/
 ```
 
-The only external request is to Google Fonts (Spectral + Hanken Grotesk); everything else — images, logo, styles, scripts — is local, so the page works offline aside from font fallbacks.
+The only external requests are Google Fonts (Instrument Sans, IBM Plex Mono, Newsreader). Everything else is local.
 
 ## Structure
 
 ```
 .
-├── index.html         # the entire site: markup, CSS, and JS in one file
-├── indoslogo.png      # brand logo (used in the nav, footer, and as the favicon)
-├── images/            # 14 team photos, referenced as images/<name>.jpg
-├── .nojekyll          # tells GitHub Pages to serve files as-is (no Jekyll)
-└── README.md
+├── index.html       # Overview: hero with globe, practices, products grid, a day at the practice, clinics, roadmap
+├── products.html    # The twelve products with UI panels and a system diagram
+├── vision.html      # Thesis and the six-step sequence
+├── team.html        # People, grouped by team
+├── privacy.html     # Privacy policy (A2P 10DLC)
+├── terms.html       # SMS terms (A2P 10DLC)
+├── styles.css       # All styles; light and dark themes via CSS tokens
+├── main.js          # Theme toggle, sticky nav, mobile menu, products sub-nav
+├── globe.js         # Canvas globe for the hero (1° land mask from Natural Earth 110m, offices and clinics marked)
+├── indoslogo.png    # Logo and favicon
+├── images/          # Team photos
+├── .nojekyll        # Serve as-is on GitHub Pages
+└── .github/workflows/deploy.yml   # Cloudflare Pages deploy; the copy at the repo root deploys this folder
 ```
-
-## What's on the page
-
-- **Overview** — hero, the clinics we operate, how the system grows, the ecosystem diagram, the product grid, and roadmap.
-- **Products** — the ten products on one shared foundation: Foundry, Models, Scribe, Clinics, Guardian, RCM, Credentialing, Supply chain, Castle, and Bishop. Includes a system diagram and a map linking to each product.
-- **Vision** — the long-term thesis: build from inside the clinic outward.
-- **Team** — the people, grouped by function.
-
-Interactive bits: a light/dark theme toggle, animated product mockups, the ecosystem diagram (each product links to its card in the Overview grid), and the products map (each row links to its product section).
 
 ## Editing
 
-Everything lives in `index.html`:
-
-- **Team** — search for `<article class="person">` in the Team section. Each entry has a LinkedIn link, a photo tile (`images/<name>.jpg`) or initials, a name, a role, a short bio, and badge pills.
-- **Products** — each product appears in three places that should stay in sync: the Overview product grid (`.ovp-card`, keyed by `data-prodlink`), the ecosystem diagram and products map, and the detail section (`<section class="prod" id="...">`). Animated mockups are driven by `data-sim` in the script at the bottom of the file.
-- **Theme colors / layout** — CSS variables live in the `:root` block at the top of the `<style>` tag (e.g. `--maxw` controls the max content width).
-
-## Deploy (GitHub Pages)
-
-This repo is published with GitHub Pages from the default branch at:
-
-> <https://independenceos.github.io/indos-web/>
-
-Requirements for it to serve the site (rather than the README):
-
-- The entry file must be named **`index.html`** and sit at the repo root. GitHub Pages serves `index.html` as the homepage; if it's missing, Pages falls back to rendering `README.md` as the page.
-- **`.nojekyll`** is committed so Pages skips Jekyll and serves the static files exactly as they are.
-- Keep `index.html`, `indoslogo.png`, `images/`, and `.nojekyll` together; asset paths are relative.
-
-After pushing, give Pages a minute to rebuild and hard-refresh (Cmd/Ctrl+Shift+R) to clear any cached page.
-
-Any other static host (Netlify, Vercel, S3, …) works too — just publish the repo root.
-
----
-
-Houston · Bangalore — [admin@independenceos.ai](mailto:admin@independenceos.ai)
+- **Team**: each person is an `<article class="person">` in `team.html`. Photos go in `images/`; a person without a photo uses initials in `<span class="avatar">`.
+- **Products**: each product is a `<section class="product" id="...">` in `products.html`. Alternate `class="product flip"` to swap the text and panel sides.
+- **Colors and type**: tokens live at the top of `styles.css`. The light palette is on `:root`, the dark palette under the `prefers-color-scheme` media query and `[data-theme="dark"]`.
+- **Globe**: sites and the arc are listed at the top of `globe.js`. The land mask is a base64 bitmap, 360 by 180 cells, one bit per degree.
